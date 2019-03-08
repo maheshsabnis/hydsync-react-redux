@@ -2,21 +2,12 @@
 import React from "react";
 // 2. Import ReactDOM for rendering React Component in DOM
 import ReactDom from "react-dom";
+// 3. bootstrap CSS
 import "!style!css!bootstrap/dist/css/bootstrap.min.css";
-import SimpleComponent from "./components/simpleComponent.jsx";
-import ProductComponent from "./components/application/productComponent.jsx";
-import ProductAppComponent from "./components/applicationComponent.jsx";
-import ProductUIComponent from "./components/application/productUIComponent.jsx";
-import MyComponent from "./components/mycomponent.jsx";
 
-import CompanyListComponent from "./hoc/companyList.jsx";
-import StockListComponent from "./hoc/stockList.jsx";
-import HoC from "./hoc/hocComponent.jsx";
-import MainComponent from "./components/routingapp/mainComponent.jsx";
-let companyData = [{ id: 101, name: "Microsoft" }, { id: 102, name: "IBM" }];
-let stockData = [{ id: 201, name: "BSE" }, { id: 202, name: "NSE" }];
-
-let CompanyDataComponent = HoC(CompanyListComponent, companyData);
-let StockListDataComponent = HoC(StockListComponent, stockData);
-
-ReactDom.render(<ProductUIComponent />, document.getElementById("app"));
+// 4. import all react components
+import SimpleComponent from "./components/simplecomponent.jsx";
+import SatefulComponent from "./components/statefulcomponent.jsx";
+let data = "Hay!Simple Component.";
+// 5. Rendering Components
+ReactDom.render(<SatefulComponent />, document.getElementById("app"));

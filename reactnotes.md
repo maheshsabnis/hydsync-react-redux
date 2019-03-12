@@ -84,3 +84,71 @@ Working with React App
       4. Two-Types for Stateful component
          1. Controlled Component (recommended)
          2. UnControlled Component (will be depricated)
+
+#=================================================================#=================================================================
+
+Controlled Stateful component for data sharing across
+
+1. Component's reusability is the most important part of React Application Development.
+2. Create Once and render multiple times is the Component's reusability principal.
+3. When Components are having Parent-Child relationship, then parent can send data to child using "props" property of the component
+   1. Using this, the parent component can also listens changes made by child component.
+4. To bind single method to all input and select elements to be executed based on 'change' event to read values, set 'name' attribute to all element
+   1. Imp. Note: The 'name' attribute must have value same of 'the state property' of the component of which value to be set
+
+#=================================================================================#=================================================================================
+Aysc REST Calls, the JavaScript Objects are
+
+1. fetch
+   1. Pure ES 6 object
+   2. fetch(url,options JSON Object);
+      1. options
+         1. method: GET/POST/PUT/DELETE
+         2. body:JSON data to be passed
+         3. headers:{MIME Type, AUTHORIZATIOn}
+      2. return "Promise" object with 2 Phase exection
+         1. then() --> Method to complete the subscription and fetch data
+         2. then() --> to use the data on client-side
+         3. catch() --> error
+      3. fetch().then().then().catch()
+2. axios
+   1. npm install --save-dev axios
+   2. Promise based object
+   3. The Object used for performing ajax calls from React Applications
+      1. get() / post() / put() /delete()
+         1. all these returns promise object
+         2. be default JSON based
+      2. The post() and put() method directly access body object
+         1. axios.post(url, data, headers);
+            1. data: Object that will be passed as JSON
+               1. JavaScript Object
+               2. JSON {}
+3. thunk
+   1. Generally used along with axios for Redux Applications
+4. request
+   1. npm install --save-dev request
+      1. For ES 6 Node Based applications
+      2. The Service Side object
+
+All these are "PROMISE" based objects
+#==========================================================================================#==========================================================================================
+React 16.x
+
+1. Functional Component
+   1. Fast, High-Reusable function objects, those are responsible for rendering reusable HTML elements.
+      1. Facts
+         1. Do not have state
+         2. No-Lifecycle hooks
+         3. Autonomous object for self-defined functionality
+      2. Syntax
+         1. const <function-name>=({parameters})=>(logic and HTML)
+      3. When to use them?
+         1. Same UI to be used across various components
+         2. Components with fixed number of properties
+         3. We do not need lifecycle methods
+      4. When not to use them?
+         1. We want event handling for HTML elements inside component
+         2. We need life-cycle method implementation, then use React standard class
+2. Higher-Order-Component aks HOC
+3. PropTypes
+   1. prop-types includes in react 16.x

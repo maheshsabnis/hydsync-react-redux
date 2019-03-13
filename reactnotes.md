@@ -152,3 +152,61 @@ React 16.x
 2. Higher-Order-Component aks HOC
 3. PropTypes
    1. prop-types includes in react 16.x
+
+#=================================================================================
+#=================================================================================
+Redux Application
+
+1. important packages
+   1. redux
+      1. npm install --save-dev redux
+   2. react-redux
+      1. npm install --save-dev react-redux
+2. We have a container component, that manages life-cycle of all its children and establish data communication across them
+3. The container component is responsible for :
+   1. Managing Store
+   2. Dispatching Action Requests
+   3. Listening to Store's state update
+   4. Mapping the updated store's state to all components having subscription to store
+
+Creation of Redux Application
+
+1. Object Model Of Redux Apps
+   1. actions
+      1. The Object that is used for
+         1. Listening the Event Request from UI
+         2. Accepting the Payload (event parameter)
+         3. Executing Logic for the event
+            1. Local Logic aka front-end logic
+            2. The external ajax calls
+               1. Make sure that the CallBack subscription is done
+         4. They are also known as "Action Creators"
+      2. The action is defined as action type
+         1. A Constant that contains action name
+            1. e.g. export const ADD_PRODUCT="ADD_PRODUCT";
+   2. View
+      1. Components those will be use to make the dispatch requests
+      2. There always exists a 'MAIN COMPONENT' that will be used to establish communication across all components and manage the state/props together to be receiving updates from store
+   3. Reducers
+      1. Pure function with 'state' and 'action' as input parameters
+         1. based on action type, it modifies the state and returns it
+         2. if the action type is not matched then the default state is returned
+      2. If the action-creator is performing 'AJAX' calls then the reducer MUST use 'middleware' to manage and control promise based operations.
+      3. The object 'combineReducers' from 'redux' package is used to manage the reducers' execution and store updates
+   4. Store
+      1. Contain the state of the application
+2. Redux Configuration for the application
+   1. In the application startup perform following
+      1. import reducer
+      2. import createStore object
+      3. import Provider object to provide the store to the Main-Component
+         1. react-redux package with "Provider" component and its "store" property
+         2. The Provider component manage the life-cycle of the react-redux application with
+            1. action dispatch
+            2. invoking reducers to update state in store
+            3. Notify to all components within the provider to notify store data
+      4. The MainComponent, must map the its state to props so that the reducer will be invoked with state data
+         1. To do this, the Main-Component must import the connect() method from react-redux package.
+         2. The Main-Component, must implement method e.g. mapStateToPros(state) with state parameter, this will get the state from store and will be delivered to Main-Component
+         3. The connect() Method must map the mapStateToProps to the reducer
+            1. export default connect(mapStateToProps)(MainComponent)
